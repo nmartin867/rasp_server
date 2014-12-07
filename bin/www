@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+var app = require('../server');
+var port = process.env.PORT || 3001;
+var tcpPort = process.env.TCPPORT || 6969;
+var TcpSocket = require('../services/tcpSocket');
+var WebSocket = require('../services/webSocket');
+
+TcpSocket.connect(tcpPort);
+WebSocket.connect(app);
+
+app.listen(port);

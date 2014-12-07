@@ -1,0 +1,20 @@
+<div class="home">
+    <div class="row">
+        <div class="col-sm-12">
+            <button class="btn btn-primary" ng-click="requestPhoto()">
+                <span class="glyphicon glyphicon-camera"></span>
+                <span>Take Photo</span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-7">
+            <img ng-if="snapShot" data-ng-src="data:image/jpeg;base64,{{snapShot}}">
+        </div>
+    </div>
+    <div class="row console">
+        <div class="col-sm-12">
+            Console
+        </div>
+    </div>
+</div>
