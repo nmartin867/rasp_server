@@ -1,15 +1,9 @@
-angular.module('raspi-server').controller('home', ['$scope', 'socket', 'camera', function ($scope, socket, camera) {
-    $scope.logItems = [];
-    socket.on('client-log', function (logData) {
-        $scope.logItems.push(logData);
-    });
-    socket.on('image-still', function (imageData) {
-        $scope.snapShot = imageData.data;
-    });
-    $scope.requestPhoto = function () {
-        if ($scope.snapShot) {
-            $scope.snapShot = null;
-        }
-        camera.requestPhoto();
+angular.module('raspi-server').controller('home', ['$scope', 'camera', 'Config', function ($scope, camera, config) {
+    $scope.takeImage = function () {
+        $scope.snapShot = null;
+        camera.requestPhoto().then(function () {
+            $scope.snapShot = config.client + '/image';
+        });
     };
+
 }]);

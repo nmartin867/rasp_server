@@ -1,8 +1,8 @@
-angular.module('raspi-server').factory('camera', ['$http', '$q', function ($http, $q) {
+angular.module('raspi-server').factory('camera', ['$http', '$q', 'Config', function ($http, $q, config) {
     return {
         requestPhoto: function () {
             var deferred = $q.defer();
-            $http.post('/photo/snap', {}).then(function (response) {
+            $http.post(config.client + '/image/600/480', {}).then(function (response) {
                 deferred.resolve(response);
             });
             return deferred.promise;

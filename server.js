@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
 var staticPath = __dirname + '/public';
 
 
@@ -16,4 +15,4 @@ app.use('/', home);
 app.use('/photo', camera);
 
 
-module.exports = http;
+module.exports = app;

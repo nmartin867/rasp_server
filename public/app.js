@@ -1,4 +1,4 @@
-angular.module('raspi-server', ['ui.router', 'btford.socket-io']);
+angular.module('raspi-server', ['ui.router']);
 
 angular.element(document).ready(function () {
     angular.bootstrap(document, ['raspi-server']);
